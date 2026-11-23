@@ -8,7 +8,6 @@
   <!-- ===== SECURITI-COOKIE-BANNER: paste the Securiti consent code here ===== -->
   <script type="text/javascript" src="https://cdn-prod.securiti.ai/consent/auto_blocking/ed91c418-0537-4d55-90cb-bcb3c584dd65/7039cf16-d7bb-4af3-b0ab-7ce7daf821fd.js"></script>
   
-  
   <!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer.  -->
   <script>
   (function () {
@@ -93,7 +92,19 @@
   </script>
 
   <!-- ===== SECURITI-FORM-CONSENT: paste the Consent Collection Code here (Session 3), immediately before </body> ===== -->
-
+  <script src='https://cdn-prod.securiti.ai/consent/form-consent-sdk.js'></script>
+  <script>
+  window.addEventListener('load', function() {
+      FormConsentSDK.initialize({
+          codeGenMetadata:{"formPropertyId":"1","formSelector":"[name*=\"newsletter-form\"]","subjectIdentifiers":[{"name":"email","selector":"[name = \"email\"]","isPrimary":true}],"consentIdentifiers":[{"type":"checkbox","name":"consent_marketing","selector":"[name = \"consent_marketing\"]","propertyId":462,"consentValue":"checked"},{"type":"checkbox","name":"consent_product_updates","selector":"[name = \"consent_product_updates\"]","propertyId":463,"consentValue":"checked"}],"consentTrigger":{"action":"click","selector":"[name = \"subscribe_btn\"]"}},
+          url: 'https://app.securiti.ai/privaci/v1/',
+          cmpQuill:'406aefaa-22f0-4f4b-9c66-df54d3d9562a',
+          orgId:'1',
+          onConsentSuccess: null,
+          onConsentFailure: null
+      })
+  })
+  </script>
   <!-- ===== END SECURITI-FORM-CONSENT ===== -->
 </body>
 </html>
